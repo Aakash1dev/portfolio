@@ -1,0 +1,172 @@
+:root {
+  /* ==========================================================================
+     GLOBAL THEME CONFIGURATION - CHANGE PRIMARY COLORS & THEME HERE IN ONE PLACE
+     ========================================================================== */
+  --color-primary: #ff2a2a;
+  --color-primary-hover: #e62222;
+  --color-primary-rgb: 255, 42, 42;
+  
+  --color-bg-dark: #0a0a0a;
+  --color-card-dark: #141414;
+  --color-card-hover: #1f1f1f;
+  --color-border-dark: #222222;
+  --color-border-light: rgba(255, 255, 255, 0.08);
+  
+  --color-text-main: #ffffff;
+  --color-text-muted: #9ca3af;
+}
+
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+}
+
+.theme-primary-text {
+  color: var(--color-primary);
+}
+
+.theme-primary-bg {
+  background-color: var(--color-primary);
+}
+
+.theme-primary-border {
+  border-color: var(--color-primary);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.skill-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #1f1f1f;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  transition: width 0.8s ease-in-out;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -10px rgba(var(--color-primary-rgb), 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  border-color: rgba(var(--color-primary-rgb), 0.4);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.nav-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.nav-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.input-error {
+  border-color: var(--color-primary) !important;
+}
+
+.error-message {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
