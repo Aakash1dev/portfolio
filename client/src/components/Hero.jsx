@@ -38,7 +38,7 @@ const Hero = () => {
         const num = String(i).padStart(3, '0');
         const img = new Image();
         img.decoding = 'async';
-        img.src = `/src/assets/hero-video/ezgif-frame-${num}.jpg`;
+        img.src = `${import.meta.env.BASE_URL}hero-video/ezgif-frame-${num}.jpg`;
 
         img.onload = img.onerror = () => {
           loadedCount++;
@@ -323,7 +323,7 @@ const Hero = () => {
         {/* Top Layer Cutout Image */}
         <img
           ref={topLayerRef}
-          src="/src/assets/hero-video/ezgif-frame-240.jpg"
+          src={`${import.meta.env.BASE_URL}hero-video/ezgif-frame-240.jpg`}
           className="absolute inset-0 h-full w-full object-cover origin-center pointer-events-none z-[2] opacity-0"
           alt="Top Layer Cutout"
           loading="lazy"
